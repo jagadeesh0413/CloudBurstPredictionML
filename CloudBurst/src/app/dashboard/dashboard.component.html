@@ -1,2 +1,41 @@
-<p>dashboard works!</p>
-<a href="javascript:void(0);" routerLink="/" >home</a>
+<br><br>
+<div class="container">
+    
+    <h1>Enhancing Cloudburst Prediction</h1>
+    <p>Machine Learning-Driven Meteorological Analysis</p>
+
+     <form (ngSubmit)="predictCloudburst()"> 
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" [(ngModel)]="formData.date">
+
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time">
+
+      <label for="temperature">Temperature (°C):</label>
+      <input type="number" id="temperature" name="temperature" step="0.1">
+
+      <label for="humidity">Humidity (%):</label>
+      <input type="number" id="humidity" name="humidity" step="1">
+
+      <label for="wind-speed">Wind Speed (km/h):</label>
+      <input type="number" id="wind-speed" name="wind-speed" step="0.1">
+
+      <label for="precipitation">Precipitation (mm):</label>
+      <input type="number" id="precipitation" name="precipitation" step="0.1">
+
+      <label for="pressure">Pressure (hPa):</label>
+      <input type="number" id="pressure" name="pressure" step="0.1">
+      
+      <button type="submit" >Predict Cloudburst</button>
+    </form>
+    
+  </div>
+<br>
+<div class="container">
+      <div>
+        <h2>Prediction Result</h2>
+        <p>The predicted cloudburst likelihood is: <span>{{ prediction }}</span></p>  
+      </div>
+</div>
+<br><br>

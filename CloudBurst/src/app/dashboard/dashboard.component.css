@@ -1,0 +1,71 @@
+/* Reset some default styles */
+body, h1, h2, p, ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Center the content */
+.container {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Align form labels and inputs */
+form label {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+  text-align: left; /* Align labels to the left */
+}
+
+form input[type="date"],
+form input[type="time"],
+form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Center the submit button */
+/* Creative button styles */
+form button[type="submit"] {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 25px; /* Increase border radius for a rounded shape */
+  cursor: pointer;
+  font-size: 20px; /* Increase font size for emphasis */
+ /* background: linear-gradient(135deg, #007BFF, #00C853); /* Gradient background */
+ background: linear-gradient(135deg, #004175, #001D3A); /* Dark-themed gradient */ 
+ color: #fff;
+  transition: transform 0.2s ease, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Add a slight shadow and transform on hover for a creative effect */
+form button[type="submit"]:hover {
+  background: linear-gradient(135deg, #001D3A, 004175);
+  transform: scale(1.05); /* Slight scale-up on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+}
+
+
+/* Align the "Prediction Result" text */
+.container h2 {
+  margin: 20px 0;
+  font-size: 24px;
+  text-align: center; /* Center the heading */
+}
+
+/* Add spacing to the bottom of the container */
+.container:last-child {
+  margin-bottom: 20px;
+}
