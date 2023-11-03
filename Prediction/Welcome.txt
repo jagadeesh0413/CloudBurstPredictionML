@@ -1,1 +1,50 @@
 Welcome to Cloud Burst Prediction System !
+
+This code is a Python script for building a Flask web application that provides predictions for cloudburst events based on input weather data. It uses a Random Forest Classifier model for making predictions. 
+Here's an explanation of the code:
+
+1.Import Libraries:
+   - `pandas`: Used for data manipulation and preprocessing.
+   - `sklearn.model_selection`: Provides functions for splitting the dataset into training and testing sets.
+   - `sklearn.ensemble`: Contains the Random Forest Classifier for machine learning.
+   - `sklearn.preprocessing`: Provides data preprocessing tools, including StandardScaler for feature scaling.
+   - `flask`: A web framework for building the web application.
+   - `flask_cors`: Enables Cross-Origin Resource Sharing (CORS) to allow requests from different domains.
+
+2.Create a Flask App:
+   - `app = Flask(__name__)`: Initialize a Flask application.
+
+3.Enable CORS:
+   - `CORS(app)`: Allow Cross-Origin Resource Sharing for the web app.
+
+4.Load and Preprocess Data:
+   - `pd.read_csv('cloudburst_data.csv')`: Load a CSV file into a Pandas DataFrame.
+   - Data preprocessing includes converting date and time columns to appropriate datetime formats, extracting year, month, and day, and mapping the 'cloudburst' column to binary labels (0 for 'No' and 1 for 'Yes').
+
+5.Split Data into Features and Target:
+   - `X = data.drop('cloudburst', axis=1)`: Features are stored in the `X` DataFrame.
+   - `y = data['cloudburst']`: The target variable (cloudburst) is stored in the `y` Series.
+
+6.Standardize Features:
+   - `scaler = StandardScaler()`: Initialize a StandardScaler to standardize the features.
+   - `X = scaler.fit_transform(X)`: Standardize the feature data using the `fit_transform` method.
+
+7.Train a Random Forest Classifier:
+   - `clf = RandomForestClassifier(n_estimators=100, random_state=42)`: Create a Random Forest Classifier with 100 trees and a fixed random seed for reproducibility.
+   - `clf.fit(X, y)`: Train the classifier using the standardized features `X` and target variable `y`.
+
+8.Define a Prediction Function:
+   - `predict_cloudburst(date, temperature, humidity, windSpeed, precipitation, pressure)`: This function preprocesses input data, scales it, and uses the trained classifier (`clf`) to make a prediction, returning 'Yes' or 'No' based on the binary prediction result.
+
+9.Define Flask Routes:
+   - `@app.route('/')`: A route for the home page that returns a welcome message.
+   - `@app.route('/predict', methods=['POST'])`: A route to handle predictions. It expects a JSON POST request with weather data.
+
+10.Handle Predictions:
+    - `predict()`: This function retrieves weather data from the JSON request, calls the `predict_cloudburst` function to make a prediction, and returns the prediction as JSON.
+
+11.Run the Flask App:
+    - `if __name__ == '__main__':`: Ensure that the app is run only when the script is executed directly, not when it's imported as a module.
+    - `app.run(debug=True)`: Start the Flask application in debug mode, making it accessible through a local web server.
+
+With this code, you can start the Flask app, send weather data to the '/predict' route via a POST request, and receive predictions for cloudburst events in response. The app uses a trained Random Forest Classifier to make these predictions.

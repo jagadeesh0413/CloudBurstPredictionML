@@ -9,11 +9,11 @@ import { CloudburstService } from '../_services/cloudburst.service';
 export class DashboardComponent {
   formData: any = {
     date: '',
-    temperature: 0,
-    humidity: 0,
-    windSpeed: 0,
-    precipitation: 0,
-    pressure: 0,
+    temperature: '',
+    humidity: '',
+    windSpeed: '',
+    precipitation: '',
+    pressure: '',
   };
   prediction: string = '';
 

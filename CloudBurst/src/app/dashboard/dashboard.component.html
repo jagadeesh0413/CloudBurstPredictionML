@@ -4,28 +4,28 @@
     <h1>Enhancing Cloudburst Prediction</h1>
     <p>Machine Learning-Driven Meteorological Analysis</p>
 
-     <form (ngSubmit)="predictCloudburst()"> 
-
+      <form (ngSubmit)="predictCloudburst()"> 
+      
       <label for="date">Date:</label>
-      <input type="date" id="date" name="date" [(ngModel)]="formData.date">
+      <input type="date" id="date" name="date" [(ngModel)]="formData.date" required>
 
       <label for="time">Time:</label>
-      <input type="time" id="time" name="time">
+      <input type="time" id="time" name="time" [(ngModel)]="formData.time" required>
 
       <label for="temperature">Temperature (°C):</label>
-      <input type="number" id="temperature" name="temperature" step="0.1">
+      <input type="number" id="temperature" name="temperature" step="0.1" [(ngModel)]="formData.temperature" required>
 
       <label for="humidity">Humidity (%):</label>
-      <input type="number" id="humidity" name="humidity" step="1">
+      <input type="number" id="humidity" name="humidity" step="1" [(ngModel)]="formData.humidity" required>
 
       <label for="wind-speed">Wind Speed (km/h):</label>
-      <input type="number" id="wind-speed" name="wind-speed" step="0.1">
+      <input type="number" id="wind-speed" name="wind-speed" step="0.1" [(ngModel)]="formData.windSpeed" required>
 
       <label for="precipitation">Precipitation (mm):</label>
-      <input type="number" id="precipitation" name="precipitation" step="0.1">
+      <input type="number" id="precipitation" name="precipitation" step="0.1" [(ngModel)]="formData.precipitation" required>
 
       <label for="pressure">Pressure (hPa):</label>
-      <input type="number" id="pressure" name="pressure" step="0.1">
+      <input type="number" id="pressure" name="pressure" step="0.1" [(ngModel)]="formData.pressure" required>
       
       <button type="submit" >Predict Cloudburst</button>
     </form>
@@ -38,4 +38,17 @@
         <p>The predicted cloudburst likelihood is: <span>{{ prediction }}</span></p>  
       </div>
 </div>
-<br><br>
+<br>
+<div class="container">
+  <h2>Technical Explanations:</h2>
+  <ul>
+      <li><strong>Date (dd-mm-yyyy):</strong> A date is represented in the format "day-month-year" to indicate a specific calendar day.</li>
+      <li><strong>Time (--:--):</strong> Time is expressed in the format "hours:minutes" to denote a particular moment within a day.</li>
+      <li><strong>Temperature (°C):</strong> Temperature is a measure of thermal energy in degrees Celsius (°C) and indicates the warmth or coldness of an object or environment.</li>
+      <li><strong>Humidity (%):</strong> Humidity, expressed as a percentage (%), quantifies the amount of water vapor present in the air relative to the maximum amount the air can hold at a given temperature.</li>
+      <li><strong>Wind Speed (km/h):</strong> Wind speed is the rate at which air moves horizontally and is measured in kilometers per hour (km/h).</li>
+      <li><strong>Precipitation (mm):</strong> Precipitation represents the amount of water, in millimeters (mm), that falls from the atmosphere to the ground, which can be in the form of rain, snow, or other forms of moisture.</li>
+      <li><strong>Pressure (hPa):</strong> Pressure, measured in hectopascals (hPa), is the force exerted by the weight of the atmosphere above a specific point and is an essential factor in weather systems and forecasting.</li>
+   </ul>
+</div>
+<br>
